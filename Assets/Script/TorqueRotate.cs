@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class TorqueRotate : MonoBehaviour
 {
-    public float TorquePower = 5f;
+    public float TorquePower;
     Rigidbody rb;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -16,7 +16,7 @@ public class TorqueRotate : MonoBehaviour
     {
         if (Keyboard.current.dKey.isPressed)
         {
-            rb.AddTorque(Vector3.up * TorquePower, 0);
+            rb.AddTorque(Vector3.up * TorquePower);
         }
     }
 }

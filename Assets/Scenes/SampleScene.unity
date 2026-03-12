@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7e383e5c34c8f4c9787d6848bb7671, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TorqueRotate
-  TorquePower: 0
+  TorquePower: 5
 --- !u!1 &1637240116
 GameObject:
   m_ObjectHideFlags: 0
