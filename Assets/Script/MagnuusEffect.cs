@@ -1,0 +1,41 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+public class MagnuusEffect : MonoBehaviour
+{
+    public float kickForce;
+    public float spinAmount;
+    public float magnusStrenght;
+
+    Rigidbody rb;
+    bool isShot = false;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && isShot)
+        {
+            rb.AddForce(Vector3.forward * kickForce, ForceMode.Impulse);
+
+            rb.AddTorque(Vector3.up * spinAmount);
+
+            isShot = true;
+        }
+    }
+    private void FixedUpdate()
+    {
+        if (isShot) return;
+
+        Vector3 velocity = rb.linearVelocity;
+        Vector3 spin = rb.angularVelocity;
+
+        Vector3 MagnuusEffect = magnusStrenght * Vector3.Cross(spin, velocity);
+
+        rb.AddForce(MagnuusEffect);
+    }
+}
